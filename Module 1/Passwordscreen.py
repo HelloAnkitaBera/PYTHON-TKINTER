@@ -15,7 +15,7 @@ def check_password_field(*args):
 def password():
     password = password_entry.get()
     #print("Submitted Password:", password_var.get())   
-    submit_label.config(text=f"Summited password:{password}")
+    submit_label.config(text=f"Summited password: {password}")
 
 root = tk.Tk()
 root.title("Password Entry")
@@ -40,7 +40,7 @@ show_checkbox.grid(row=1, column=1,columnspan=2, padx=10, pady=10)
 submit_btn = tk.Button(root, text="Submit", state="disabled", command=password)
 submit_btn.grid(row=2, column=0, columnspan=2,padx=10, pady=10)
 
-submit_label = tk.Label(root, text="")
+submit_label = tk.Label(root, text="", fg="green")
 submit_label.grid(row=3, column=0, columnspan=2,padx=10, pady=10)
 
 

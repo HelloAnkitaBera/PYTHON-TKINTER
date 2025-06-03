@@ -2,7 +2,7 @@ import tkinter as tk
 
 root = tk.Tk()
 root.title("Login Form")
-root.geometry("854x400")
+root.geometry("854x480")
 
 # Login function
 def login():

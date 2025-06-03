@@ -15,7 +15,7 @@ def clear_form():
     name_var.set("")
     age_var.set("")
     email_var.set("")
-    gender_var.set("Male")
+    gender_var.set("")
     course_var.set("")
 
 def save_to_file(data):
