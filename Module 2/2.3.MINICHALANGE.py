@@ -5,12 +5,12 @@ def update_feedback(*args):
     gender = gender_var.get()
     terms_accepted = "Yes" if terms_var.get() else "No"
 
-    feedback_text = (
+    output_text = (
         f"Hello {name}!\n"
         f"Gender: {gender}\n"
         f"Accepted Terms: {terms_accepted}"
     )
-    feedback_label.config(text=feedback_text)
+    output_label.config(text=output_text)
 
 # Root window
 root = tk.Tk()
@@ -43,5 +43,13 @@ tk.Checkbutton(root, text="Accept Terms and Conditions", variable=terms_var).pac
 # Live feedback label
 feedback_label = tk.Label(root, text="", justify="left", fg="green")
 feedback_label.pack(padx=10, pady=10, anchor="w")
+
+
+output_frame = tk.LabelFrame(root, text="Output", padx=10, pady=10)
+output_frame.pack(padx=10, pady=10, fill="x")
+
+output_label = tk.Label(output_frame, text="", fg="green", justify="left")
+output_label.pack(anchor="w")
+
 
 root.mainloop()

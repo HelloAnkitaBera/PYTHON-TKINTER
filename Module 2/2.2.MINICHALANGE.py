@@ -1,19 +1,12 @@
 import tkinter as tk
 
 def submit_form():
-    summit_label.config(
-        text=f"Summited: "
-             f"Gender: {gender_var.get()}, "
-             f"Daily Updates: {'Yes' if daily_var.get() else 'No'}, "
-             f"Weekly Summary: {'Yes' if weekly_var.get() else 'No'}, "
-             f"Age: {age_spinbox.get()}"
-    )
- 
- ##print("Gender:", gender_var.get())
-   ## print("Daily Updates:", "Yes" if daily_var.get() else "No")
-    ##print("Weekly Summary:", "Yes" if weekly_var.get() else "No")
-    ##print("Age:", age_spinbox.get())
-
+    gender = gender_var.get()
+    daily = "Yes" if daily_var.get() else "No"
+    weekly = "Yes" if weekly_var.get() else "No"
+    age = age_spinbox.get()
+    output_text = f"Gender: {gender}\nDaily Updates: {daily}\nWeekly Summary: {weekly}\nAge: {age}"
+    output_label.config(text=output_text)
 
 # Root window
 root = tk.Tk()
@@ -49,10 +42,20 @@ age_spinbox = tk.Spinbox(age_frame, from_=18, to=60, width=5)
 age_spinbox.pack(anchor="w")
 
 # === Submit Button ===
+
+# Option 1: Pack button directly into root
 tk.Button(root, text="Submit", command=submit_form).pack(pady=10)
 
 summit_label = tk.Label(root, text="", fg="green")
 summit_label.pack(pady=5)
+
+# === Output Frame ===
+output_frame = tk.LabelFrame(root, text="Output", padx=10, pady=10)
+output_frame.pack(padx=10, pady=10, fill="x")
+
+output_label = tk.Label(output_frame, text="", fg="green", justify="left")
+output_label.pack(anchor="w")
+
 
 root.mainloop()
 

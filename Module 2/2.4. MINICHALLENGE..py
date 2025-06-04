@@ -8,21 +8,23 @@ def submit():
     age = age_var.get()
     email = email_var.get()
 
-    summit_label.config(text=f"Submitted: Age: {age}, Email: {email}")
+    ##submit_label.config(text=f"Submitted: Age: {age}, Email: {email}")
 
     # Clear previous error message
-    error_label.config(text="")
+    ##submit_label.config(text="")
 
     if not age:
-        error_label.config(text="Age is required.")
+        output_text = ("Age is required.")
+        output_label.config(text=output_text)
     elif not email:
-        error_label.config(text="Email is required.")
+        output_text = ("Email is required.")
+        output_label.config(text=output_text)
     elif "@" not in email or "." not in email:
-        error_label.config(text="Invalid email format.")
+        output_text = "Invalid email format."
+        output_label.config(text=output_text, fg="red")
     else:
-        print("Age:", age)
-        print("Email:", email)
-        error_label.config(text="Form submitted successfully.", fg="green")
+        output_text = f"Age: {age}\nEmail: {email}\nForm submitted successfully."
+        output_label.config(text=output_text, fg="green")
 
 # GUI setup
 root = tk.Tk()
@@ -51,6 +53,12 @@ error_label.pack()
 
 summit_label = tk.Label(root, text="", fg="green")
 summit_label.pack(pady=5)
+
+output_frame = tk.LabelFrame(root, text="Output", padx=10, pady=10)
+output_frame.pack(padx=10, pady=10, fill="x")
+
+output_label = tk.Label(output_frame, text="", fg="green", justify="left")
+output_label.pack(anchor="w")
 
 
 root.mainloop()
