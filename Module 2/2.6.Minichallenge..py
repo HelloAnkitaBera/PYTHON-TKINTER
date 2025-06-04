@@ -6,9 +6,9 @@ def handle_login(username_var, password_var, status_label):
     password = password_var.get()
 
     if username == "admin" and password == "secret":
-        status_label.config(text="Login successful", fg="green")
+        output_label.config(text="Login successful", fg="green")
     else:
-        status_label.config(text="Invalid credentials", fg="red")
+        output_label.config(text="Invalid credentials", fg="red")
 
 # UI builder function
 def create_login_form(root):
@@ -39,5 +39,11 @@ root.title("Modular Login Window")
 root.geometry("300x180")
 
 create_login_form(root)
+
+output_frame = tk.LabelFrame(root, text="Output")
+output_frame.grid(row=4, column=0, padx=10, pady=10, columnspan=2, sticky="ew")
+
+output_label = tk.Label(output_frame, text="", fg="green", justify="left")
+output_label.pack(anchor="w", padx=10, pady=5)
 
 root.mainloop()
