@@ -36,7 +36,7 @@ def create_login_form(root):
 # Main block
 root = tk.Tk()
 root.title("Modular Login Window")
-root.geometry("300x180")
+root.geometry("854x480")
 
 create_login_form(root)
 

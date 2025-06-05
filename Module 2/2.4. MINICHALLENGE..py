@@ -29,7 +29,7 @@ def submit():
 # GUI setup
 root = tk.Tk()
 root.title("Validation Form")
-root.geometry("300x220")
+root.geometry("854x480")
 
 # Variables
 age_var = tk.StringVar()

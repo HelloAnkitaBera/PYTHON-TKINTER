@@ -25,7 +25,7 @@ def clear_text():
 # GUI setup
 root = tk.Tk()
 root.title("File Reader")
-root.geometry("400x300")
+root.geometry("854x480")
 
 # Buttons
 button_frame = tk.Frame(root)
