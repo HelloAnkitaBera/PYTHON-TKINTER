@@ -38,4 +38,6 @@ tk.Button(button_frame, text="Clear", command=clear_text).pack(side="left", padx
 text_area = tk.Text(root, wrap="word")
 text_area.pack(expand=True, fill="both", padx=10, pady=10)
 
+
+
 root.mainloop()
