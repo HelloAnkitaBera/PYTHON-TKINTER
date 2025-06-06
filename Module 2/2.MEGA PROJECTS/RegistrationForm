@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 
-
 def validate_inputs(name, age, email):
     if not name or not age or not email:
         return "All fields are required."
@@ -75,44 +74,60 @@ form_frame = tk.Frame(root, padx=20, pady=20)
 form_frame.pack(fill="both", expand=True)
 
 # Form layout
-tk.Label(form_frame, text="Name: First Name:").grid(row=0, column=0, sticky="e")
-tk.Entry(form_frame, textvariable=firstname_var).grid(row=0, column=1, pady=5)
 
-tk.Label(form_frame, text="Last Name:").grid(row=1, column=0, sticky="e")
-tk.Entry(form_frame, textvariable=lastname_var).grid(row=1, column=1, pady=5)
+student_frame = tk.LabelFrame(root, text="Student's Details", padx=10, pady=10)
+student_frame.pack(fill="both", expand=True, padx=10, pady=5)
 
-tk.Label(form_frame, text="Gender:").grid(row=2, column=0, sticky="e")
-gender_frame = tk.Frame(form_frame)
+tk.Label(student_frame, text="Name: First Name:").grid(row=0, column=0, sticky="e")
+tk.Entry(student_frame, textvariable=firstname_var).grid(row=0, column=1, pady=5)
+
+tk.Label(student_frame, text="Last Name:").grid(row=1, column=0, sticky="e")
+tk.Entry(student_frame, textvariable=lastname_var).grid(row=1, column=1, pady=5)
+
+tk.Label(student_frame, text="Gender:").grid(row=2, column=0, sticky="e")
+gender_frame = tk.Frame(student_frame)
 gender_frame.grid(row=2, column=1, pady=5, sticky="w")
 tk.Radiobutton(gender_frame, text="Male", variable=gender_var, value="Male").pack(side="left")
 tk.Radiobutton(gender_frame, text="Female", variable=gender_var, value="Female").pack(side="left")
 
-tk.Label(form_frame, text="Date Of Birth:").grid(row=3, column=0, sticky="e")
-tk.Entry(form_frame, textvariable=DOB_var).grid(row=3, column=1, pady=5)
+tk.Label(student_frame, text="Date Of Birth:").grid(row=3, column=0, sticky="e")
+tk.Entry(student_frame, textvariable=DOB_var).grid(row=3, column=1, pady=5)
 
-tk.Label(form_frame, text="Age:").grid(row=4, column=0, sticky="e")
-tk.Entry(form_frame, textvariable=age_var).grid(row=4, column=1, pady=5)
+tk.Label(student_frame, text="Age:").grid(row=4, column=0, sticky="e")
+tk.Entry(student_frame, textvariable=age_var).grid(row=4, column=1, pady=5)
 
-tk.Label(form_frame, text="Phone No:").grid(row=5, column=0, sticky="e")
-tk.Entry(form_frame, textvariable=phoneno_var).grid(row=5, column=1, pady=5)
+tk.Label(student_frame, text="Phone No:").grid(row=5, column=0, sticky="e")
+tk.Entry(student_frame, textvariable=phoneno_var).grid(row=5, column=1, pady=5)
 
-tk.Label(form_frame, text="Email:").grid(row=6, column=0, sticky="e")
-tk.Entry(form_frame, textvariable=email_var).grid(row=6, column=1, pady=5)
+tk.Label(student_frame, text="Email:").grid(row=6, column=0, sticky="e")
+tk.Entry(student_frame, textvariable=email_var).grid(row=6, column=1, pady=5)
 
-tk.Label(form_frame, text="Father's Name:").grid(row=7, column=0, sticky="e")
-tk.Entry(form_frame, textvariable=fathersname_var).grid(row=7, column=1, pady=5)
+guardian_frame = tk.LabelFrame(root, text="Guardian's Details", padx=10, pady=10)
+guardian_frame.pack(fill="both", expand=True, padx=10, pady=5)
 
-tk.Label(form_frame, text="Mother's Name:").grid(row=8, column=0, sticky="e")
-tk.Entry(form_frame, textvariable=mothersname_var).grid(row=8, column=1, pady=5)
 
-tk.Label(form_frame, text="Gurdain's Phone No:").grid(row=9, column=0, sticky="e")
-tk.Entry(form_frame, textvariable=gurdainphone_var).grid(row=9, column=1, pady=5)
+tk.Label(guardian_frame, text="Father's Name:").grid(row=7, column=0, sticky="e")
+tk.Entry(guardian_frame, textvariable=fathersname_var).grid(row=7, column=1, pady=5)
 
-tk.Label(form_frame, text="Gurdain's Email Address:").grid(row=10, column=0, sticky="e")
-tk.Entry(form_frame, textvariable=gurdainemail_var).grid(row=10, column=1, pady=5)
+tk.Label(guardian_frame, text="Mother's Name:").grid(row=8, column=0, sticky="e")
+tk.Entry(guardian_frame, textvariable=mothersname_var).grid(row=8, column=1, pady=5)
 
-tk.Label(form_frame, text="Course:").grid(row=11, column=0, sticky="e")
-ttk.Entry(form_frame, textvariable=course_var).grid(row=11, column=1, pady=5)
+tk.Label(guardian_frame, text="Gurdain's Phone No:").grid(row=9, column=0, sticky="e")
+tk.Entry(guardian_frame, textvariable=gurdainphone_var).grid(row=9, column=1, pady=5)
+
+tk.Label(guardian_frame, text="Gurdain's Email Address:").grid(row=10, column=0, sticky="e")
+tk.Entry(guardian_frame, textvariable=gurdainemail_var).grid(row=10, column=1, pady=5)
+
+address_frame = tk.LabelFrame(root, text="Address Details", padx=10, pady=10)
+address_frame.pack(fill="both", expand=True, padx=10, pady=5)
+
+Course_frame = tk.LabelFrame(root, text="Course Details", padx=10, pady=10)
+Course_frame.pack(fill="both", expand=True, padx=10, pady=5)
+
+tk.Label(Course_frame, text="Course:").grid(row=11, column=0, sticky="e")
+ttk.Entry(Course_frame, textvariable=course_var).grid(row=11, column=1, pady=5)
+
+
 
 
 
