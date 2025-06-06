@@ -44,4 +44,3 @@ tk.Button(button_frame, text="Submit", command=submit_action).pack(side="left", 
 tk.Button(button_frame, text="Clear", command=clear_action).pack(side="left", padx=5)
 
 root.mainloop()
-

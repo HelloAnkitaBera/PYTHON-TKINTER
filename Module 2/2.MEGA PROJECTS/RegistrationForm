@@ -1,0 +1,126 @@
+import tkinter as tk
+from tkinter import messagebox
+from tkinter import ttk
+
+
+def validate_inputs(name, age, email):
+    if not name or not age or not email:
+        return "All fields are required."
+    if not age.isdigit():
+        return "Age must be a number."
+    if "@" not in email or "." not in email:
+        return "Invalid email format."
+    return None
+
+def clear_form():
+    firstname_var.set("")
+    lastname_var.set("")
+    fathersname_var.set("")
+    age_var.set("")
+    email_var.set("")
+    gender_var.set("")
+    course_var.set("")
+
+def save_to_file(data):
+    with open("registrations.txt", "a") as file:
+        file.write(data + "\n")
+
+def register_student():
+    firstname = firstname_var.get()
+    lastname = lastname_var.get()
+    fathersname = fathersname_var.get()
+    mothersname = mothersname_var.get()
+    age = age_var.get()
+    DOB = DOB_var.get()
+    gender = gender_var.get()
+    course = course_var.get()
+    phoneno = phoneno_var.get()
+    gurdainphone = gurdainphone_var.get()
+    gurdainemail = gurdainemail_var.get()
+    email = email_var.get()
+
+    error = validate_inputs(f"{firstname} {lastname}", age, email)
+    if error:
+        messagebox.showerror("Validation Error", error)
+        return
+
+    entry = f"{firstname},{lastname},{gender},{DOB},{age},{phoneno},{email},{fathersname},{mothersname},{gurdainphone},{gurdainemail},{course}"
+    save_to_file(entry)
+    messagebox.showinfo("Success", "Student registered successfully.")
+    clear_form()
+
+# Setup window
+root = tk.Tk()
+root.title("Student Registration Form")
+root.geometry("854x480")
+
+# Variables
+firstname_var = tk.StringVar()
+lastname_var = tk.StringVar()
+name_var = tk.StringVar()
+fathersname_var = tk.StringVar()
+age_var = tk.StringVar()
+gender_var = tk.StringVar(value="Male")
+course_var = tk.StringVar()
+email_var = tk.StringVar()
+DOB_var = tk.StringVar()
+phoneno_var = tk.StringVar()
+mothersname_var = tk.StringVar()
+gurdainemail_var = tk.StringVar()
+gurdainphone_var = tk.StringVar()
+
+
+# Form Frame
+form_frame = tk.Frame(root, padx=20, pady=20)
+form_frame.pack(fill="both", expand=True)
+
+# Form layout
+tk.Label(form_frame, text="Name: First Name:").grid(row=0, column=0, sticky="e")
+tk.Entry(form_frame, textvariable=firstname_var).grid(row=0, column=1, pady=5)
+
+tk.Label(form_frame, text="Last Name:").grid(row=1, column=0, sticky="e")
+tk.Entry(form_frame, textvariable=lastname_var).grid(row=1, column=1, pady=5)
+
+tk.Label(form_frame, text="Gender:").grid(row=2, column=0, sticky="e")
+gender_frame = tk.Frame(form_frame)
+gender_frame.grid(row=2, column=1, pady=5, sticky="w")
+tk.Radiobutton(gender_frame, text="Male", variable=gender_var, value="Male").pack(side="left")
+tk.Radiobutton(gender_frame, text="Female", variable=gender_var, value="Female").pack(side="left")
+
+tk.Label(form_frame, text="Date Of Birth:").grid(row=3, column=0, sticky="e")
+tk.Entry(form_frame, textvariable=DOB_var).grid(row=3, column=1, pady=5)
+
+tk.Label(form_frame, text="Age:").grid(row=4, column=0, sticky="e")
+tk.Entry(form_frame, textvariable=age_var).grid(row=4, column=1, pady=5)
+
+tk.Label(form_frame, text="Phone No:").grid(row=5, column=0, sticky="e")
+tk.Entry(form_frame, textvariable=phoneno_var).grid(row=5, column=1, pady=5)
+
+tk.Label(form_frame, text="Email:").grid(row=6, column=0, sticky="e")
+tk.Entry(form_frame, textvariable=email_var).grid(row=6, column=1, pady=5)
+
+tk.Label(form_frame, text="Father's Name:").grid(row=7, column=0, sticky="e")
+tk.Entry(form_frame, textvariable=fathersname_var).grid(row=7, column=1, pady=5)
+
+tk.Label(form_frame, text="Mother's Name:").grid(row=8, column=0, sticky="e")
+tk.Entry(form_frame, textvariable=mothersname_var).grid(row=8, column=1, pady=5)
+
+tk.Label(form_frame, text="Gurdain's Phone No:").grid(row=9, column=0, sticky="e")
+tk.Entry(form_frame, textvariable=gurdainphone_var).grid(row=9, column=1, pady=5)
+
+tk.Label(form_frame, text="Gurdain's Email Address:").grid(row=10, column=0, sticky="e")
+tk.Entry(form_frame, textvariable=gurdainemail_var).grid(row=10, column=1, pady=5)
+
+tk.Label(form_frame, text="Course:").grid(row=11, column=0, sticky="e")
+ttk.Entry(form_frame, textvariable=course_var).grid(row=11, column=1, pady=5)
+
+
+
+# Buttons
+button_frame = tk.Frame(root, pady=10)
+button_frame.pack()
+
+tk.Button(button_frame, text="Register", command=register_student).pack(side="left", padx=10)
+tk.Button(button_frame, text="Clear", command=clear_form).pack(side="left", padx=10)
+
+root.mainloop()
