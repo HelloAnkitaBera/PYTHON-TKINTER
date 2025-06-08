@@ -68,23 +68,12 @@ def register_student():
     messagebox.showinfo("Success", "Student registered successfully.")
     clear_form()
 
-# def on_mousewheel(event):
-#     # Use the Canvas widget for scrolling
-#     form_frame_canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+
 
 # Setup window
 root = tk.Tk()
 root.title("Student Registration Form")
 root.geometry("854x480")
-
-# form_frame_canvas = tk.Canvas(main_frame)
-# form_frame_canvas.pack(side="left", fill="both", expand=1)
-
-# form_frame_canvas.bind_all("<MouseWheel>", on_mousewheel)
-
-# scrollbar = ttk.Scrollbar(main_frame, orient="vertical", command=form_frame_canvas.yview)
-# scrollbar.pack(side="right", fill="y")
-# form_frame_canvas.configure(yscrollcommand=scrollbar.set)
 
 
 
