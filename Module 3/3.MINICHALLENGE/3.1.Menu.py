@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import filedialog, messagebox
+from tkinter import messagebox, filedialog
+
 
 def open_file():
     file_path = filedialog.askopenfilename(
@@ -28,30 +29,53 @@ def save_file():
         except Exception as e:
             messagebox.showerror("Error", f"Could not save file:\n{e}")
 
-def exit_app():
-    root.quit()
-
-# Setup window
+	
 root = tk.Tk()
-root.title("Simple Text Editor")
-root.geometry("500x400")
+root.title("Menu Bar")
+root.geometry("854x480")
 
-# Menu bar
+# Create a Text widget for file content
+text_area = tk.Text(root, wrap="word")
+text_area.pack(expand=1, fill="both")
+
+# Create the menu bar and file menu
 menu_bar = tk.Menu(root)
 
-# File menu
 file_menu = tk.Menu(menu_bar, tearoff=0)
 file_menu.add_command(label="Open", command=open_file)
 file_menu.add_command(label="Save", command=save_file)
-file_menu.add_separator()
-file_menu.add_command(label="Exit", command=exit_app)
+file_menu.add_command(label="Exit", command=root.quit)
 
 menu_bar.add_cascade(label="File", menu=file_menu)
 
-root.config(menu=menu_bar)
+view_menu = tk.Menu(menu_bar, tearoff=0)
 
-# Text area
-text_area = tk.Text(root, wrap="word")
-text_area.pack(expand=True, fill="both")
+def openview_file():
+    messagebox.showinfo("Open View", "Open View option selected.")
+
+def explorer_file():
+    messagebox.showinfo("Explorer", "Explorer option selected.")
+
+view_menu.add_command(label="Open View", command=openview_file)
+view_menu.add_command(label="Explorer", command=explorer_file)
+
+def run_file():
+    messagebox.showinfo("Run", "Run option selected.")
+
+view_menu.add_command(label="Run", command=run_file)
+
+menu_bar.add_cascade(label="View", menu=view_menu)
+
+
+help_menu = tk.Menu(menu_bar, tearoff=0)
+
+def about():
+    messagebox.showinfo("About", "Simple Text Editor\nCreated with Tkinter.")
+
+help_menu.add_command(label="About", command=about)
+menu_bar.add_cascade(label="Help", menu=help_menu)
+
+
+root.config(menu=menu_bar)
 
 root.mainloop()

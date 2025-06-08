@@ -6,7 +6,7 @@ def about():
 
 root = tk.Tk()
 root.title("Menu Demo")
-root.geometry("300x200")
+root.geometry("854x480")
 
 menu_bar = tk.Menu(root)
 
