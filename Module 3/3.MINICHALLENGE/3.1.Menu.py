@@ -72,8 +72,8 @@ help_menu = tk.Menu(menu_bar, tearoff=0)
 def about():
     messagebox.showinfo("About", "Simple Text Editor\nCreated with Tkinter.")
 
-help_menu.add_command(label="About", command=about)
-menu_bar.add_cascade(label="Help", menu=help_menu)
+help_menu.add_command(label="Help", command=about)
+menu_bar.add_cascade(label="About", menu=help_menu)
 
 
 root.config(menu=menu_bar)
