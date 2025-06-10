@@ -57,13 +57,15 @@ def register_student():
     pincode = pincode_var.get()
     AdmissionType = AdmissionType_var.get()
     Country = Country_var.get()
+    FatherOccupation = FatherOccupation_var.get()
+    MotherOccupation = MotherOccupation_var.get()
 
     error = validate_inputs(f"{firstname} {lastname}", age, email)
     if error:
         messagebox.showerror("Validation Error", error)
         return
 
-    entry = f"{firstname},{lastname},{gender},{DOB},{age},{phoneno},{email},{fathersname},{mothersname},{gurdainphone},{gurdainemail},{course}, {nationality}, {religion}, {bloodgroup}, {occupation}, {address}, {town}, {disirict}, {state}, {pincode}, {AdmissionType}, {Country}"
+    entry = f"{firstname},{lastname},{gender},{DOB},{age},{phoneno},{email},{fathersname},{mothersname},{gurdainphone},{gurdainemail},{course}, {nationality}, {religion}, {bloodgroup}, {FatherOccupation},{MotherOccupation}, {address}, {town}, {disirict}, {state}, {pincode}, {AdmissionType}, {Country}"
     save_to_file(entry)
     messagebox.showinfo("Success", "Student registered successfully.")
     clear_form()
@@ -95,6 +97,8 @@ nationality_var = tk.StringVar()
 religion_var = tk.StringVar()
 bloodgroup_var = tk.StringVar()
 Occupation_var = tk.StringVar()
+FatherOccupation_var = tk.StringVar()
+MotherOccupation_var = tk.StringVar()
 address_var = tk.StringVar()
 town_var = tk.StringVar()
 district_var = tk.StringVar()
@@ -128,69 +132,72 @@ gender_frame = tk.Frame(student_frame)
 gender_frame.grid(row=2, column=1, pady=5, sticky="w")
 tk.Radiobutton(gender_frame, text="Male", variable=gender_var, value="Male").pack(side="left")
 tk.Radiobutton(gender_frame, text="Female", variable=gender_var, value="Female").pack(side="left")
+tk.Radiobutton(gender_frame, text="Others", variable=gender_var, value="Others").pack(side="left")
 
 tk.Label(student_frame, text="Date Of Birth:").grid(row=3, column=0, sticky="e")
 tk.Entry(student_frame, textvariable=DOB_var).grid(row=3, column=1, pady=5)
 
-tk.Label(student_frame, text="Age:").grid(row=4, column=0, sticky="e")
-tk.Entry(student_frame, textvariable=age_var).grid(row=4, column=1, pady=5)
+tk.Label(student_frame, text="Age:").grid(row=3, column=2, sticky="e")
+tk.Entry(student_frame, textvariable=age_var).grid(row=3, column=3, pady=5)
 
-tk.Label(student_frame, text="Contact No:").grid(row=5, column=0, sticky="e")
-tk.Entry(student_frame, textvariable=phoneno_var).grid(row=5, column=1, pady=5)
+tk.Label(student_frame, text="Contact No:").grid(row=4, column=0, sticky="e")
+tk.Entry(student_frame, textvariable=phoneno_var).grid(row=4, column=1, pady=5)
 
-tk.Label(student_frame, text="Email:").grid(row=6, column=0, sticky="e")
-tk.Entry(student_frame, textvariable=email_var).grid(row=6, column=1, pady=5)
+tk.Label(student_frame, text="Email:").grid(row=4, column=2, sticky="e")
+tk.Entry(student_frame, textvariable=email_var).grid(row=4, column=3, pady=5)
 
+tk.Label(student_frame, text="Nationality:").grid(row=5, column=0, sticky="e")
+tk.Entry(student_frame, textvariable=nationality_var).grid(row=5, column=1, pady=5)
 
-tk.Label(student_frame, text="Nationality:").grid(row=7, column=0, sticky="e")
-tk.Entry(student_frame, textvariable=nationality_var).grid(row=7, column=1, pady=5)
+tk.Label(student_frame, text="Religion:").grid(row=5, column=2, sticky="e")
+tk.Entry(student_frame, textvariable=religion_var).grid(row=5, column=3, pady=5)
 
-tk.Label(student_frame, text="Religion:").grid(row=8, column=0, sticky="e")
-tk.Entry(student_frame, textvariable=religion_var).grid(row=8, column=1, pady=5)
-
-tk.Label(student_frame, text="Blood Group:").grid(row=9, column=0, sticky="e")
-tk.Entry(student_frame, textvariable=bloodgroup_var).grid(row=9, column=1, pady=5)
+tk.Label(student_frame, text="Blood Group:").grid(row=6, column=0, sticky="e")
+tk.Entry(student_frame, textvariable=bloodgroup_var).grid(row=6, column=1, pady=5)
 
 
 guardian_frame = tk.LabelFrame(root, text="Guardian's Details", padx=10, pady=10)
 guardian_frame.pack(fill="both", expand=True, padx=10, pady=5)
 
 
-tk.Label(guardian_frame, text="Father's Name:").grid(row=10, column=0, sticky="e")
-tk.Entry(guardian_frame, textvariable=fathersname_var).grid(row=10, column=1, pady=5)
+tk.Label(guardian_frame, text="Father's Name:").grid(row=7, column=0, sticky="e")
+tk.Entry(guardian_frame, textvariable=fathersname_var).grid(row=7, column=1, pady=5)
 
-tk.Label(guardian_frame, text="Mother's Name:").grid(row=12, column=0, sticky="e")
-tk.Entry(guardian_frame, textvariable=mothersname_var).grid(row=12, column=1, pady=5)
+tk.Label(guardian_frame, text="Father's Occupation:").grid(row=7, column=2, sticky="e")
+tk.Entry(guardian_frame, textvariable=FatherOccupation_var).grid(row=7, column=3, pady=5)
 
-tk.Label(guardian_frame, text="Occupation:").grid(row=13, column=0, sticky="e")
-tk.Entry(guardian_frame, textvariable=Occupation_var).grid(row=13, column=1, pady=5)
+tk.Label(guardian_frame, text="Mother's Name:").grid(row=8, column=0, sticky="e")
+tk.Entry(guardian_frame, textvariable=mothersname_var).grid(row=8, column=1, pady=5)
 
-tk.Label(guardian_frame, text="Gurdain's Contact No:").grid(row=14, column=0, sticky="e")
-tk.Entry(guardian_frame, textvariable=gurdainphone_var).grid(row=14, column=1, pady=5)
+tk.Label(guardian_frame, text="Mother's Occupation:").grid(row=8, column=2, sticky="e")
+tk.Entry(guardian_frame, textvariable=MotherOccupation_var).grid(row=8, column=3, pady=5)
 
-tk.Label(guardian_frame, text="Gurdain's Email Address:").grid(row=15, column=0, sticky="e")
-tk.Entry(guardian_frame, textvariable=gurdainemail_var).grid(row=15, column=1, pady=5)
+tk.Label(guardian_frame, text="Gurdain's Contact No:").grid(row=9, column=0, sticky="e")
+tk.Entry(guardian_frame, textvariable=gurdainphone_var).grid(row=9, column=1, pady=5)
+
+tk.Label(guardian_frame, text="Gurdain's Email Address:").grid(row=9, column=2, sticky="e")
+tk.Entry(guardian_frame, textvariable=gurdainemail_var).grid(row=9, column=3, pady=5)
 
 address_frame = tk.LabelFrame(root, text="Permanent Address Details", padx=10, pady=10)
 address_frame.pack(fill="both", expand=True, padx=10, pady=5)
 
-tk.Label(address_frame, text="Home Address:").grid(row=16, column=0, sticky="e")
-tk.Entry(address_frame, textvariable=address_var).grid(row=16, column=1, pady=5)
+tk.Label(address_frame, text="Home Address:").grid(row=10, column=0, sticky="e")
+tk.Entry(address_frame, textvariable=address_var).grid(row=10, column=1, pady=5)
 
-tk.Label(address_frame, text="Village/City/Town:").grid(row=17, column=0, sticky="e")
-tk.Entry(address_frame, textvariable=town_var).grid(row=17, column=1, pady=5)
+tk.Label(address_frame, text="Village/City/Town:").grid(row=10, column=2, sticky="e")
+tk.Entry(address_frame, textvariable=town_var).grid(row=10, column=3, pady=5)
 
-tk.Label(address_frame, text="District:").grid(row=18, column=0, sticky="e")
-tk.Entry(address_frame, textvariable=district_var).grid(row=18, column=1, pady=5)
+tk.Label(address_frame, text="District:").grid(row=11, column=0, sticky="e")
+tk.Entry(address_frame, textvariable=district_var).grid(row=11, column=1, pady=5)
 
-tk.Label(address_frame, text="State:").grid(row=19, column=0, sticky="e")
-tk.Entry(address_frame, textvariable=state_var).grid(row=19, column=1, pady=5)
+tk.Label(address_frame, text="State:").grid(row=11, column=2, sticky="e")
+tk.Entry(address_frame, textvariable=state_var).grid(row=11, column=3, pady=5)
 
-tk.Label(address_frame, text="Pin Code:").grid(row=20, column=0, sticky="e")
-tk.Entry(address_frame, textvariable=pincode_var).grid(row=20, column=1, pady=5)
+tk.Label(address_frame, text="Pin Code:").grid(row=12, column=0, sticky="e")
+tk.Entry(address_frame, textvariable=pincode_var).grid(row=12, column=1, pady=5)
 
-tk.Label(address_frame, text="Country:").grid(row=20, column=0, sticky="e")
-tk.Entry(address_frame, textvariable=Country_var).grid(row=20, column=1, pady=5)
+tk.Label(address_frame, text="Country:").grid(row=12, column=2, sticky="e")
+tk.Entry(address_frame, textvariable=Country_var).grid(row=12, column=3, pady=5)
 
 Course_frame = tk.LabelFrame(root, text="Course Details", padx=10, pady=10)
 Course_frame.pack(fill="both", expand=True, padx=10, pady=5)
