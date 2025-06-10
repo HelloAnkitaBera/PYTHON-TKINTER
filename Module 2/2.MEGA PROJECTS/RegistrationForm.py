@@ -115,10 +115,13 @@ student_frame = tk.LabelFrame(root, text="Student's Details", padx=10, pady=10)
 student_frame.pack(fill="both", expand=True, padx=10, pady=5)
 
 tk.Label(student_frame, text="Name: First Name:").grid(row=0, column=0, sticky="e")
+tk.Label(student_frame, text="Last Name:").grid(row=0, column=2, sticky="e")
 tk.Entry(student_frame, textvariable=firstname_var).grid(row=0, column=1, pady=5)
+tk.Entry(student_frame, textvariable=lastname_var).grid(row=0, column=3, pady=5)
 
-tk.Label(student_frame, text="Last Name:").grid(row=1, column=0, sticky="e")
-tk.Entry(student_frame, textvariable=lastname_var).grid(row=1, column=1, pady=5)
+
+# tk.Label(student_frame, text="Last Name:").grid(row=1, column=0, sticky="e")
+# tk.Entry(student_frame, textvariable=lastname_var).grid(row=1, column=1, pady=5)
 
 tk.Label(student_frame, text="Gender:").grid(row=2, column=0, sticky="e")
 gender_frame = tk.Frame(student_frame)
