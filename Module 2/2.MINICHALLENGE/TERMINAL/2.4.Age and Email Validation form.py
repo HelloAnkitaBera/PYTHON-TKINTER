@@ -12,7 +12,7 @@ def submit():
 
     # Clear previous error message
     error_label.config(text="")
-
+    
     if not age:
         error_label.config(text="Age is required.")
     elif not email:
