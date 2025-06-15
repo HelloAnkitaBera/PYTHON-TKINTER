@@ -1,7 +1,7 @@
 import tkinter as tk
 import random
 
-# Circle drawing function
+
 def draw_circle(event):
     radius = 10
     x, y = event.x, event.y
@@ -11,22 +11,22 @@ def draw_circle(event):
         fill=color, outline=""
     )
 
-# Clear all drawings from the canvas
+
 def clear_canvas():
     canvas.delete("all")
 
-# Set up main window
+
 root = tk.Tk()
 root.title("Interactive Drawing Canvas")
 root.geometry("854x480")
 
-# Canvas setup
+
 canvas = tk.Canvas(root, width=480, height=300, bg="white")
 canvas.pack(padx=10, pady=10)
 
 canvas.bind("<Button-1>", draw_circle)
 
-# Clear button
+
 tk.Button(root, text="Clear Canvas", command=clear_canvas).pack(pady=10)
 
 root.mainloop()
