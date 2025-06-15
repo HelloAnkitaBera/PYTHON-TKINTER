@@ -19,14 +19,14 @@ def move_right(event):
 # Set up the main window
 root = tk.Tk()
 root.title("Move Shape with Arrow Keys")
-root.geometry("400x300")
+root.geometry("854x480")
 
 # Create canvas
-canvas = tk.Canvas(root, width=400, height=250, bg="white")
+canvas = tk.Canvas(root, width=600, height=400, bg="white")
 canvas.pack()
 
 # Draw a rectangle
-rect_id = canvas.create_rectangle(170, 100, 230, 160, fill="blue")
+rect_id = canvas.create_rectangle(100, 100, 110, 110, fill="blue")
 
 # Bind arrow key events to movement functions
 root.bind("<Up>", move_up)
