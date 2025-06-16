@@ -110,11 +110,9 @@ Country_var = tk.StringVar()
 
 
 
-# Form Frame
 form_frame = tk.Frame(root, padx=20, pady=20)
 form_frame.pack(fill="both", expand=True)
 
-# Form layout
 
 student_frame = tk.LabelFrame(root, text="Student's Details", padx=10, pady=10)
 student_frame.pack(fill="both", expand=True, padx=10, pady=5)
