@@ -41,9 +41,9 @@ phoneNo_entry.grid(row=3, column=1, padx=10, pady=10)
 button_frame = tk.Frame(root)
 button_frame.pack(padx= 10)
 
-summit_button = tk.Button(button_frame,text="Summit",command=summit_action)
+summit_button = tk.Button(button_frame,text="Summit",command=summit_action, fg="black", background="green")
 summit_button.pack(padx=10, side="left")
-clear_button = tk.Button(button_frame,text="Clear",command=clear_action)
+clear_button = tk.Button(button_frame,text="Clear",command=clear_action, fg="black", background="red")
 clear_button.pack(padx=10, side="left")
 
 summit_label = tk.Label(root, text="", fg="green")
