@@ -47,7 +47,7 @@ password.grid(row=1, column=0, padx=10, pady=10, sticky="e")
 password_entry = tk.Entry(root, textvariable=password_var, show="*")
 password_entry.grid(row=1, column=1, padx=10, pady=10)
 
-login_btn = tk.Button(root, text="Login", state="disabled", command=login)
+login_btn = tk.Button(root, text="Login",  command=login, fg="black", background="green")
 login_btn.grid(row=2, column=0, columnspan=2, pady=10)
 
 status_label = tk.Label(root, text="")
