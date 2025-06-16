@@ -1,6 +1,6 @@
 import tkinter as tk
 
-# Logic function to handle login
+
 def handle_login(username_var, password_var, status_label):
     username = username_var.get()
     password = password_var.get()
@@ -10,7 +10,7 @@ def handle_login(username_var, password_var, status_label):
     else:
         output_label.config(text="Invalid credentials", fg="red")
 
-# UI builder function
+
 def create_login_form(root):
     username_var = tk.StringVar()
     password_var = tk.StringVar()
@@ -33,7 +33,7 @@ def create_login_form(root):
     )
     login_btn.grid(row=2, column=0, columnspan=2, pady=10)
 
-# Main block
+
 root = tk.Tk()
 root.title("Modular Login Window")
 root.geometry("854x480")

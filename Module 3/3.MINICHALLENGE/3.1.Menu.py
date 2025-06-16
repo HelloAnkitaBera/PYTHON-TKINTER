@@ -34,11 +34,11 @@ root = tk.Tk()
 root.title("Menu Bar")
 root.geometry("854x480")
 
-# Create a Text widget for file content
+
 text_area = tk.Text(root, wrap="word")
 text_area.pack(expand=1, fill="both")
 
-# Create the menu bar and file menu
+
 menu_bar = tk.Menu(root)
 
 file_menu = tk.Menu(menu_bar, tearoff=0)

@@ -31,15 +31,15 @@ def save_file():
 def exit_app():
     root.quit()
 
-# Setup window
+
 root = tk.Tk()
 root.title("Simple Text Editor")
 root.geometry("854x480")
 
-# Menu bar
+
 menu_bar = tk.Menu(root)
 
-# File menu
+
 file_menu = tk.Menu(menu_bar, tearoff=0)
 file_menu.add_command(label="Open", command=open_file)
 file_menu.add_command(label="Save", command=save_file)
@@ -50,7 +50,7 @@ menu_bar.add_cascade(label="File", menu=file_menu)
 
 root.config(menu=menu_bar)
 
-# Text area
+
 text_area = tk.Text(root, wrap="word")
 text_area.pack(expand=True, fill="both")
 
