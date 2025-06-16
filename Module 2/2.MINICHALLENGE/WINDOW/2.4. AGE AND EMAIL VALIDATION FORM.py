@@ -14,17 +14,13 @@ def submit():
     ##submit_label.config(text="")
 
     if not age:
-        output_text = ("Age is required.")
-        output_label.config(text=output_text)
+        output_label.config(text="Age is required.")
     elif not email:
-        output_text = ("Email is required.")
-        output_label.config(text=output_text)
+        output_label.config(text="Email is required.")
     elif "@" not in email or "." not in email:
-        output_text = "Invalid email format."
-        output_label.config(text=output_text, fg="red")
+        output_label.config(text="Invalid email format.", fg="red")
     else:
-        output_text = f"Age: {age}\nEmail: {email}\nForm submitted successfully."
-        output_label.config(text=output_text, fg="green")
+        output_label.config(text= f"Age: {age}\nEmail: {email}\nForm submitted successfully.", fg="green")
 
 
 root = tk.Tk()
@@ -57,7 +53,7 @@ summit_label.pack(pady=5)
 output_frame = tk.LabelFrame(root, text="Output", padx=10, pady=10)
 output_frame.pack(padx=10, pady=10, fill="x")
 
-output_label = tk.Label(output_frame, text="", fg="green", justify="left")
+output_label = tk.Label(output_frame, text="", fg="purple", justify="left")
 output_label.pack(anchor="w")
 
 

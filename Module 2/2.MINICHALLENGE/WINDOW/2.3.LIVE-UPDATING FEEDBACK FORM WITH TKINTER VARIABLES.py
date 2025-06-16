@@ -4,13 +4,8 @@ def update_feedback(*args):
     name = name_var.get()
     gender = gender_var.get()
     terms_accepted = "Yes" if terms_var.get() else "No"
-
-    output_text = (
-        f"Hello {name}!\n"
-        f"Gender: {gender}\n"
-        f"Accepted Terms: {terms_accepted}"
-    )
-    output_label.config(text=output_text)
+    
+    output_label.config(text=f"Hello {name}!\nGender: {gender}\nAccepted Terms: {terms_accepted}")
 
 
 root = tk.Tk()
@@ -48,7 +43,7 @@ feedback_label.pack(padx=10, pady=10, anchor="w")
 output_frame = tk.LabelFrame(root, text="Output", padx=10, pady=10)
 output_frame.pack(padx=10, pady=10, fill="x")
 
-output_label = tk.Label(output_frame, text="", fg="Black", justify="left")
+output_label = tk.Label(output_frame, text="", fg="Purple", justify="left")
 output_label.pack(anchor="w")
 
 

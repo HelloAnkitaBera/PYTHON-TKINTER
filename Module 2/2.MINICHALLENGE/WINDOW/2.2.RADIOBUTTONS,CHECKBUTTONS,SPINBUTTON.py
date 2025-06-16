@@ -5,8 +5,7 @@ def submit_form():
     daily = "Yes" if daily_var.get() else "No"
     weekly = "Yes" if weekly_var.get() else "No"
     age = age_spinbox.get()
-    output_text = f"Gender: {gender}\nDaily Updates: {daily}\nWeekly Summary: {weekly}\nAge: {age}"
-    output_label.config(text=output_text)
+    output_label.config(text= f"Gender: {gender}\nDaily Updates: {daily}\nWeekly Summary: {weekly}\nAge: {age}")
 
 
 root = tk.Tk()
@@ -52,7 +51,7 @@ summit_label.pack(pady=5)
 output_frame = tk.LabelFrame(root, text="Output", padx=10, pady=10)
 output_frame.pack(padx=10, pady=10, fill="x")
 
-output_label = tk.Label(output_frame, text="", fg="green", justify="left")
+output_label = tk.Label(output_frame, text="", fg="Purple", justify="left")
 output_label.pack(anchor="w")
 
 
