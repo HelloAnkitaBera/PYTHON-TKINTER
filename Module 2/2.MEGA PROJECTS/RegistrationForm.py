@@ -11,7 +11,7 @@ def validate_inputs(name, age, email):
     if "@" not in email or "." not in email:
         return "Invalid email format."
     return None
-
+   
 def clear_form():
     firstname_var.set("")
     lastname_var.set("")
@@ -29,6 +29,7 @@ def clear_form():
     bloodgroup_var.set("")
     Occupation_var.set("")
     Country_var.set("")
+    term_var.set(0)
 
 def save_to_file(data):
     with open("registrations.txt", "a") as file:
@@ -60,6 +61,8 @@ def register_student():
     Country = Country_var.get()
     FatherOccupation = FatherOccupation_var.get()
     MotherOccupation = MotherOccupation_var.get()
+    terms_accepted = "Yes" if term_var.get() else "No"
+
 
     error = validate_inputs(f"{firstname} {lastname}", age, email)
     if error:
@@ -118,7 +121,7 @@ student_frame = tk.LabelFrame(root, text="Student's Details", padx=10, pady=10)
 student_frame.pack(fill="both", expand=True, padx=10, pady=5)
 
 
-tk.Label(student_frame, text="Name: First Name:").grid(row=0, column=0, sticky="e")
+tk.Label(student_frame, text="First Name:").grid(row=0, column=0, sticky="e")
 tk.Label(student_frame, text="Last Name:").grid(row=0, column=2, sticky="e")
 tk.Entry(student_frame, textvariable=firstname_var).grid(row=0, column=1, pady=5)
 tk.Entry(student_frame, textvariable=lastname_var).grid(row=0, column=3, pady=5)
