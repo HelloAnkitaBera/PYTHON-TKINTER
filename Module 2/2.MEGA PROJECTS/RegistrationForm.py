@@ -107,7 +107,7 @@ state_var = tk.StringVar()
 pincode_var = tk.StringVar()
 AdmissionType_var = tk.StringVar()
 Country_var = tk.StringVar()
-
+term_var = tk.IntVar() 
 
 
 form_frame = tk.Frame(root, padx=20, pady=20)
@@ -209,12 +209,14 @@ ttk.Entry(Course_frame, textvariable=course_var).grid(row=21, column=1, pady=5)
 tk.Label(Course_frame, text="Admission Type: ").grid(row=22, column=0, sticky="e")
 ttk.Entry(Course_frame, textvariable=AdmissionType_var).grid(row=22, column=1, pady=5)
 
+tk.Checkbutton(root, text="I accept all terms and conditions.",variable=term_var).pack(anchor="w", padx=10, pady=10)
+
 
 # Buttons
 button_frame = tk.Frame(root, pady=10)
 button_frame.pack()
 
-tk.Button(button_frame, text="Register", command=register_student).pack(side="left", padx=10)
-tk.Button(button_frame, text="Clear", command=clear_form).pack(side="left", padx=10)
+tk.Button(button_frame, text="Register", command=register_student, fg="black", background="green").pack(side="left", padx=10)
+tk.Button(button_frame, text="Clear", command=clear_form, fg="black", background="red").pack(side="left", padx=10)
 
 root.mainloop()
