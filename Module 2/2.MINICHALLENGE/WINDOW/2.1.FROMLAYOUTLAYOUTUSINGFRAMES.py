@@ -12,7 +12,7 @@ def clear_action():
 
 root = tk.Tk()
 root.title("Documents")
-root.geometry("854x400")
+root.geometry("854x480")
 
 name_var = tk.StringVar()
 email_var = tk.StringVar()
