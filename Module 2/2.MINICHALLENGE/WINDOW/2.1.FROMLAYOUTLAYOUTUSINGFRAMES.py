@@ -46,7 +46,7 @@ summit_button.pack(padx=10, side="left")
 clear_button = tk.Button(button_frame,text="Clear",command=clear_action, fg="black", background="red")
 clear_button.pack(padx=10, side="left")
 
-summit_label = tk.Label(root, text="", fg="green")
+summit_label = tk.Label(root, text="", fg="Orange")
 summit_label.pack(pady=5)
 
 root.mainloop()
