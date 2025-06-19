@@ -22,7 +22,7 @@ root.title("Move Shape with Arrow Keys")
 root.geometry("854x480")
 
 
-canvas = tk.Canvas(root, width=600, height=400, bg="white")
+canvas = tk.Canvas(root, width=600, height=400, bg="pink")
 canvas.pack()
 
 
