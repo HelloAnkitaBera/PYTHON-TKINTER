@@ -38,6 +38,10 @@ tk.Button(button_frame, text="Clear", command=clear_text).pack(side="left", padx
 text_area = tk.Text(root, wrap="word")
 text_area.pack(expand=True, fill="both", padx=10, pady=10)
 
-
+context_menu = tk.Menu(root, tearoff=0)
+context_menu.add_command(label="Cut", command=lambda: text_area.event_generate("<<Cut>>"))
+context_menu.add_command(label="Copy", command=lambda: text_area.event_generate("<<Copy>>"))
+context_menu.add_command(label="Paste", command=lambda: text_area.event_generate("<<Paste>>"))
+context_menu.add_command(label="Undo", command=lambda: text_area.event_generate("<<Undo>>"))
 
 root.mainloop()
